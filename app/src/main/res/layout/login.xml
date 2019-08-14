@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
+
     <EditText
         android:id="@+id/etLogin"
         android:layout_width="0dp"
@@ -63,6 +64,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tvRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:enabled="false"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <TextView
@@ -81,8 +83,8 @@
 
     <TextView
         android:id="@+id/tvAttempt"
-        android:layout_width="4dp"
-        android:layout_height="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="140dp"
         android:text=""
         android:textColor="@android:color/background_light"
