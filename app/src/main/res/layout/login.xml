@@ -8,76 +8,87 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
-
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/etLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="21dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginRight="43dp"
         android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="147dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:backgroundTint="@android:color/background_light"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Email"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toTopOf="@+id/etPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginBottom="21dp"
         android:backgroundTint="@android:color/background_light"
         android:ems="20"
         android:inputType="textPassword"
         android:text="Password"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="149dp"
-        android:clickable="true"
-        android:text="No account yet? Create one "
-        android:textColor="@android:color/background_light"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginRight="43dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="147dp"
-        android:backgroundTint="@android:color/background_light"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Email"
-        android:textColor="@android:color/background_light"
-        app:layout_constraintBottom_toTopOf="@+id/password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etLogin" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLogon"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="23dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginRight="43dp"
         android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginRight="43dp"
+        android:layout_marginBottom="23dp"
         android:backgroundTint="#2a1a09"
         android:text="Login"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/tvRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:clickable="true"
+        android:text="No account yet? Create one "
+        android:textColor="@android:color/background_light"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvAttempt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogon" />
+
+    <TextView
+        android:id="@+id/tvAttempt"
+        android:layout_width="4dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="140dp"
+        android:text=""
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
 </android.support.constraint.ConstraintLayout>
