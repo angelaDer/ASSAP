@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SecondActivityRegister"></activity>
+        <activity android:name=".CreateNew" />
         <activity android:name=".MainReports" />
         <activity android:name=".MainActivity">
             <intent-filter>
