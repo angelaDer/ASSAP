@@ -117,7 +117,7 @@
         app:srcCompat="?android:attr/actionModeSelectAllDrawable" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/createnew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="9dp"
