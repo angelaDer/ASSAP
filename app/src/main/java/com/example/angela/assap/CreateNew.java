@@ -8,16 +8,25 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.support.v4.app.ActivityCompat;
+
+
 
 public class CreateNew extends AppCompatActivity {
 
     ImageButton cameraButton;
     ImageView photo1;
     Intent intent;
+
+    Database db;
+    Button add_data;
+    EditText editText;
+
     public static final int RequestPermissionCode = 1;
 
     @Override
@@ -39,7 +48,46 @@ public class CreateNew extends AppCompatActivity {
 
             }
         });
+
+
+        add_data = findViewById(R.id.button3);
+        editText = findViewById(R.id.editText5);
+        db = new Database(this);
+
+
+
+        add_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newEntry = editText.getText().toString();
+
+                if(editText.length() != 0){
+
+                    AddData(newEntry);
+                    editText.setText("");
+                    Intent createNewActivity = new Intent(CreateNew.this, MainReports.class);
+                    startActivity(createNewActivity);
+                }else{
+
+                    Toast.makeText(CreateNew.this,"Add something",Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
     }
+
+    public void AddData(String newEntry){
+        boolean insertData = db.addData(newEntry);
+
+        if(insertData==true){
+            Toast.makeText(CreateNew.this,"Data added",Toast.LENGTH_LONG).show();
+        }else{
+
+            Toast.makeText(CreateNew.this,"Data not added!!!",Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
