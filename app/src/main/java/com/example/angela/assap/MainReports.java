@@ -11,24 +11,53 @@ import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+
 
 public class MainReports extends AppCompatActivity {
 
+
+    private static final String TAG = "MainReports";
+
     ImageButton createNewButton;
     Database db;
+    ArrayList<String> theList = new ArrayList<>();
+
+    private void initRecyclerView(){
+        Log.d(TAG, "initRecyclerView: init recyclerview.");
+        RecyclerView recyclerView = findViewById(R.id.recyclerv_view);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, theList);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+/*
+    private void initImageBitmaps(){
+        Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
+
+
+        theList.add("Havasu Falls");
+        theList.add("Trondheim");
+        theList.add("Portugal");
+        theList.add("Rocky Mountain National Park");
+
+
+    }
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.allreports);
 
-        ListView listView = (ListView) findViewById(R.id.mobile_list);
+        initRecyclerView();
+
+/*      ListView listView = (ListView) findViewById(R.id.recyclerv_view);*/
         db = new Database(this);
 
-
-        ArrayList<String> theList = new ArrayList<>();
         Cursor data = db.viewData();
 
         if(data.getCount() == 0){
@@ -38,7 +67,7 @@ public class MainReports extends AppCompatActivity {
             while(data.moveToNext()){
                 theList.add(data.getString(1));
                 ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,theList);
-                listView.setAdapter(listAdapter);
+              //  theList.setAdapter(listAdapter);
             }
 
         }
@@ -51,5 +80,8 @@ public class MainReports extends AppCompatActivity {
                 startActivity(createNewActivity);
             }
         });
+
     }
+
+
 }
