@@ -136,7 +136,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#2a1a09"
-        android:text="Button"
+        android:text="In progress"
         android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

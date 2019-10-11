@@ -15,10 +15,12 @@ public class Database extends SQLiteOpenHelper {
     //columns
     private static final String ID = "ID";
     private static final String Title = "Title";
+    private static final String Description = "Description";
+    private static final String Localisation = "Localisation";
 
     private static final String CREATE_TABLE = "CREATE TABLE " + DB_TABLE+"("+
             ID +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-            Title +" TEXT "+ ")";
+            Title +" TEXT," +  Description +" TEXT," + Localisation +" TEXT" +")";
 
     public Database(Context context) {
 
@@ -43,11 +45,14 @@ public class Database extends SQLiteOpenHelper {
 
 
 //create method to insert data
-    public boolean addData(String title){
+    public boolean addData(String title, String description, String localisation){
 
         SQLiteDatabase db = this.getWritableDatabase();
+        this.onOpen(db);
         ContentValues contentValues = new ContentValues();
         contentValues.put(Title, title);
+        contentValues.put(Description, description );
+        contentValues.put(Localisation, localisation);
 
         long result = db.insert(DB_TABLE, null, contentValues);
 

@@ -26,6 +26,13 @@ public class CreateNew extends AppCompatActivity {
     Database db;
     Button add_data;
     EditText editText;
+    EditText editTextDescription;
+    EditText editTextLocalisation;
+
+    ImageButton createNewButton;
+    ImageButton allReportsButton;
+    ImageButton inProgressButton;
+    ImageButton doneButton;
 
     public static final int RequestPermissionCode = 1;
 
@@ -52,6 +59,8 @@ public class CreateNew extends AppCompatActivity {
 
         add_data = findViewById(R.id.button3);
         editText = findViewById(R.id.editText5);
+        editTextDescription = findViewById(R.id.editText6);
+        editTextLocalisation = findViewById(R.id.editText7);
         db = new Database(this);
 
 
@@ -60,13 +69,17 @@ public class CreateNew extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String newEntry = editText.getText().toString();
+                String newDescription = editTextDescription.getText().toString();
+                String newLocalisation = editTextLocalisation.getText().toString();
 
                 if(editText.length() != 0){
 
-                    AddData(newEntry);
+                    AddData(newEntry, newDescription, newLocalisation);
                     editText.setText("");
-                    Intent createNewActivity = new Intent(CreateNew.this, MainReports.class);
-                    startActivity(createNewActivity);
+                    editTextDescription.setText("");
+                    editTextLocalisation.setText("");
+                   // Intent createNewActivity = new Intent(CreateNew.this, MainReports.class);
+                   // startActivity(createNewActivity);
                 }else{
 
                     Toast.makeText(CreateNew.this,"Add something",Toast.LENGTH_LONG).show();
@@ -74,10 +87,43 @@ public class CreateNew extends AppCompatActivity {
                 }
             }
         });
+        createNewButton = (ImageButton) findViewById(R.id.createnew);
+        createNewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openCreateNew();
+            }
+        });
+
+
+        allReportsButton = (ImageButton) findViewById(R.id.imageButton2);
+        allReportsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMainReports();
+            }
+        });
+
+        inProgressButton = (ImageButton) findViewById(R.id.imageButton5);
+        inProgressButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openInProgress();
+            }
+        });
+
+        doneButton = (ImageButton) findViewById(R.id.imageButton6);
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDone();
+            }
+        });
+
     }
 
-    public void AddData(String newEntry){
-        boolean insertData = db.addData(newEntry);
+    public void AddData(String newEntry, String newDescription, String newLocalisation){
+        boolean insertData = db.addData(newEntry, newDescription, newLocalisation);
 
         if(insertData==true){
             Toast.makeText(CreateNew.this,"Data added",Toast.LENGTH_LONG).show();
@@ -134,5 +180,33 @@ public class CreateNew extends AppCompatActivity {
                 break;
         }
     }
+
+    public void openCreateNew() {
+
+        Intent intent = new Intent(this, CreateNew.class);
+        startActivity(intent);
+    }
+
+    public void openMainReports() {
+
+        Intent intent = new Intent(this, MainReports.class);
+        startActivity(intent);
+    }
+
+
+    public void openInProgress() {
+
+        Intent intent = new Intent(this, InProgress.class);
+        startActivity(intent);
+    }
+
+
+
+    public void openDone() {
+
+        Intent intent = new Intent(this, Done.class);
+        startActivity(intent);
+    }
+
 
 }
