@@ -5,8 +5,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class Details extends AppCompatActivity {
     ImageButton allReportsButton;
     ImageButton inProgressButton;
     ImageButton doneButton;
+    String title;
     Database db;
 
 
@@ -59,7 +62,16 @@ public class Details extends AppCompatActivity {
             }
         });
 
-           }
+
+        Bundle Extra = getIntent().getExtras();
+        title = Extra.getString("image_name");
+
+        //Nie działa
+        //((TextView) findViewById(R.id.twdetails1)).setText(title);
+        //twdetails1 = (EditText)findViewById(R.id.twdetails1);
+
+
+    }
 
     public void openCreateNew() {
 
