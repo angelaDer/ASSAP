@@ -30,7 +30,7 @@ public class MainReports extends AppCompatActivity {
     ImageButton doneButton;
     Database db;
     ArrayList<String> theList = new ArrayList<>();
-    private RecyclerViewAdapter adapter;
+   // private RecyclerViewAdapter adapter;
 
     public void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerview.");
@@ -39,26 +39,30 @@ public class MainReports extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-   //     adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
-   //         @Override
-   //         public void onDeleteClick(int position) {
+         /*adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener())
 
-    //        }
+        adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onDeleteClick(int position) {
 
-    //        @Override
-    //        public void onItemClick(int position) {
-    //            theList.get(position, "Clicked");
+            }
 
-    //        }
+            @Override
+            public void onItemClick(int position) {
+               theList.get(position, "Clicked").
 
-            //   adapter.setOnItemClickListener (new adapter.setOnItemClickListener() {
-            //@Override
-            //      public void onItemClick (int position){
-            //open new intent
-            //      }
+            }
+
+               adapter.setOnItemClickListener (new adapter.setOnItemClickListener() {
+            @Override
+                  public void onItemClick (int position){
+            open new intent
+                  }
 
 
-    //    });
+        });
+*/
+
     }
 
 
@@ -85,10 +89,10 @@ public class MainReports extends AppCompatActivity {
 
         initRecyclerView();
 
-        Bundle Extra = getIntent().getExtras();
+      /*  Bundle Extra = getIntent().getExtras();
         String getText = Extra.getString("MyInput");
         tvHello = (TextView)findViewById(R.id.tvHello);
-        tvHello.setText(getText);
+        tvHello.setText(getText);*/
 
 
         /*      ListView listView = (ListView) findViewById(R.id.recyclerv_view);*/

@@ -28,6 +28,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
 
+/*
     private OnItemClickListener mListener;
     public interface OnItemClickListener {
         void  onItemClick (int position);
@@ -37,6 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         mListener = listener;
     }
+*/
 
 
     private static final String TAG = "RecyclerViewAdapter";
@@ -56,7 +58,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
-        ViewHolder holder = new ViewHolder(view, mListener);
+      //  ViewHolder holder = new ViewHolder(view, mListener);
+        ViewHolder holder = new ViewHolder(view);
+
         return holder;
     }
 
@@ -102,14 +106,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         RelativeLayout parentLayout;
         public ImageView mDeleteImage;
 
-        public ViewHolder(View itemView, final OnItemClickListener listener) {
+      //  public ViewHolder(View itemView, final OnItemClickListener listener) {
+        public ViewHolder(View itemView) {
+
             super(itemView);
            // image = itemView.findViewById(R.id.image);
             imageName = itemView.findViewById(R.id.image_name);
             parentLayout = itemView.findViewById(R.id.parent_layout);
             mDeleteImage = itemView.findViewById((R.id.image_delete));
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+          /*  itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (listener != null) {
@@ -131,7 +137,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         }
                     }
                 }
-            });
+            });*/
         }
     }
 }
