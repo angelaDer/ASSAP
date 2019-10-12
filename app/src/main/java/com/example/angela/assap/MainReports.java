@@ -28,14 +28,39 @@ public class MainReports extends AppCompatActivity {
     ImageButton doneButton;
     Database db;
     ArrayList<String> theList = new ArrayList<>();
+    private RecyclerViewAdapter adapter;
 
-    private void initRecyclerView(){
+    public void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerview.");
         RecyclerView recyclerView = findViewById(R.id.recyclerv_view);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, theList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+   //     adapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
+   //         @Override
+   //         public void onDeleteClick(int position) {
+
+    //        }
+
+    //        @Override
+    //        public void onItemClick(int position) {
+    //            theList.get(position, "Clicked");
+
+    //        }
+
+            //   adapter.setOnItemClickListener (new adapter.setOnItemClickListener() {
+            //@Override
+            //      public void onItemClick (int position){
+            //open new intent
+            //      }
+
+
+    //    });
     }
+
+
+
 
 /*
     private void initImageBitmaps(){
@@ -72,6 +97,7 @@ public class MainReports extends AppCompatActivity {
                 ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,theList);
               //  theList.setAdapter(listAdapter);
             }
+
 
         }
 
@@ -145,6 +171,11 @@ public class MainReports extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickFab (View view) {
+
+        Intent intent = new Intent(this, Details.class);
+        startActivity(intent);
+ }
 
 
 }

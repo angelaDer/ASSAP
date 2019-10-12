@@ -34,6 +34,7 @@ public class CreateNew extends AppCompatActivity {
     ImageButton inProgressButton;
     ImageButton doneButton;
 
+
     public static final int RequestPermissionCode = 1;
 
     @Override

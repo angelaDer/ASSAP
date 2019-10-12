@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Details"></activity>
         <activity android:name=".Done"></activity>
         <activity android:name=".InProgress"></activity>
         <activity android:name=".SecondActivityRegister"></activity>
