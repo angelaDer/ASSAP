@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvAttempt;
     private TextView tvRegister;
     private int counter = 5;
+    public String email;
 
 
     @Override
@@ -123,11 +124,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void validate(String userName, String userPassword) {
         tvAttempt.setText(Integer.toString(counter));
+        email= etLogin.getText().toString();
+        email = email.split("@")[0];
 
         if ((userName.equals("Admin@ing.com")) && (userPassword.equals("1234"))) {
             Intent intent = new Intent(MainActivity.this, MainReports.class);
             Toast.makeText(MainActivity.this,"Username and password are correct. Welcome !",
                     Toast.LENGTH_SHORT).show();
+            intent.putExtra("MyInput", email);
             startActivity(intent);
         }else {
             Toast.makeText(MainActivity.this,"Username and password is NOT correct.\nNumber of left attempts to logon: " + Integer.toString(counter),

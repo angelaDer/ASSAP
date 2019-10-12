@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ public class MainReports extends AppCompatActivity {
 
 
     private static final String TAG = "MainReports";
+    private TextView tvHello;
 
     ImageButton createNewButton;
     ImageButton allReportsButton;
@@ -83,7 +85,13 @@ public class MainReports extends AppCompatActivity {
 
         initRecyclerView();
 
-/*      ListView listView = (ListView) findViewById(R.id.recyclerv_view);*/
+        Bundle Extra = getIntent().getExtras();
+        String getText = Extra.getString("MyInput");
+        tvHello = (TextView)findViewById(R.id.tvHello);
+        tvHello.setText(getText);
+
+
+        /*      ListView listView = (ListView) findViewById(R.id.recyclerv_view);*/
         db = new Database(this);
 
         Cursor data = db.viewData();
@@ -175,7 +183,7 @@ public class MainReports extends AppCompatActivity {
 
         Intent intent = new Intent(this, Details.class);
         startActivity(intent);
- }
+    }
 
 
 }
