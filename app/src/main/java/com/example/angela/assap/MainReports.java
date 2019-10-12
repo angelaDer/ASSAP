@@ -101,7 +101,6 @@ public class MainReports extends AppCompatActivity {
         Cursor data = db.viewData();
 
         if(data.getCount() == 0){
-
             Toast.makeText(MainReports.this,"Database was empty",Toast.LENGTH_LONG).show();
         }else{
             while(data.moveToNext()){
@@ -109,8 +108,6 @@ public class MainReports extends AppCompatActivity {
                 ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,theList);
               //  theList.setAdapter(listAdapter);
             }
-
-
         }
 
         createNewButton = (ImageButton) findViewById(R.id.createnew);

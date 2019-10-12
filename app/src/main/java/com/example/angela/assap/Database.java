@@ -82,4 +82,29 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
+    public Cursor viewDescription(String name){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM "+ DB_TABLE + " WHERE Title = '" + name + "'";
+
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        return cursor;
+
+    }
+
+    public Cursor viewLocalisation(String name){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM "+ DB_TABLE + " WHERE Title = '" + name + "'";
+
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        return cursor;
+
+    }
+
+
 }

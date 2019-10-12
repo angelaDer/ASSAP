@@ -5,8 +5,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class Details extends AppCompatActivity {
     String description;
     String localisation;
     Database db;
+
 
 
     @Override
@@ -67,13 +70,26 @@ public class Details extends AppCompatActivity {
 
         Bundle Extra = getIntent().getExtras();
         title = Extra.getString("image_name");
+        description = Extra.getString("description");
 
         //Nie działa
         ((TextView) findViewById(R.id.twdetails1)).setText(title);
-        //((TextView) findViewById(R.id.twdetails2)).setText(description);
-       // ((TextView) findViewById(R.id.twdetails3)).setText(localisation);
-       // twdetails1 = (EditText)findViewById(R.id.twdetails1);
 
+        db = new Database(this);
+
+        Cursor data = db.viewDescription(title);
+
+        if(data.getCount() == 0){
+            Toast.makeText(Details.this,"Database was empty",Toast.LENGTH_LONG).show();
+        }else{
+            while(data.moveToNext()){
+                description = data.getString(2);
+                localisation = data.getString(3);
+            }
+        }
+
+        ((TextView) findViewById(R.id.twdetails2)).setText(description);
+        ((TextView) findViewById(R.id.twdetails3)).setText(localisation);
 
     }
 
