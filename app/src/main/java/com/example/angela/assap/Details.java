@@ -67,8 +67,8 @@ public class Details extends AppCompatActivity {
         title = Extra.getString("image_name");
 
         //Nie działa
-        //((TextView) findViewById(R.id.twdetails1)).setText(title);
-        //twdetails1 = (EditText)findViewById(R.id.twdetails1);
+        ((TextView) findViewById(R.id.twdetails1)).setText(title);
+       // twdetails1 = (EditText)findViewById(R.id.twdetails1);
 
 
     }
