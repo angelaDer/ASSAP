@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 import android.support.v4.app.ActivityCompat;
 
@@ -19,7 +20,7 @@ import android.support.v4.app.ActivityCompat;
 
 public class CreateNew extends AppCompatActivity {
 
-    ImageButton cameraButton;
+    RadioButton cameraButton;
     ImageView photo1;
     Intent intent;
 

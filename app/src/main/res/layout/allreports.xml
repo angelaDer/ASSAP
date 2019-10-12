@@ -153,12 +153,15 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerv_view"
-        android:layout_width="272dp"
-        android:layout_height="489dp"
+        android:layout_width="400dp"
+        android:layout_height="546dp"
+        android:scrollbars="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="173dp">
+        tools:layout_editor_absoluteX="4dp">
 
     </android.support.v7.widget.RecyclerView>
 
