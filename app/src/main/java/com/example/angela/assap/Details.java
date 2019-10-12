@@ -21,6 +21,8 @@ public class Details extends AppCompatActivity {
     ImageButton inProgressButton;
     ImageButton doneButton;
     String title;
+    String description;
+    String localisation;
     Database db;
 
 
@@ -68,6 +70,8 @@ public class Details extends AppCompatActivity {
 
         //Nie działa
         ((TextView) findViewById(R.id.twdetails1)).setText(title);
+        //((TextView) findViewById(R.id.twdetails2)).setText(description);
+       // ((TextView) findViewById(R.id.twdetails3)).setText(localisation);
        // twdetails1 = (EditText)findViewById(R.id.twdetails1);
 
 
