@@ -122,6 +122,26 @@ public class CreateNew extends AppCompatActivity {
             }
         });
 
+
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText("");
+            }
+        });
+        editTextDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editTextDescription.setText("");
+            }
+        });
+        editTextLocalisation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editTextLocalisation.setText("");
+            }
+        });
+
     }
 
     public void AddData(String newEntry, String newDescription, String newLocalisation){
